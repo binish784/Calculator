@@ -5,6 +5,7 @@ class Calculator{
     this.currentOperation="";
     this.operationBlock=operation;
     this.msgBlock=msgBlock;
+    this.reset=false;
     this.prevBlock=prevNumber;
     this.currentBlock=currentNumber;
     this.currentBlock.innerHTML=0;
@@ -31,8 +32,15 @@ class Calculator{
       value="=";
     }
     if(ascii<=57 && ascii >=48){
+      if(this.reset==true){
+          this.resetAll();
+          this.reset=false;
+        }
       this.handleNumber(value);
     }else{
+      if(this.reset){
+        this.reset=false;
+      }
       let valid=valid_buttons.some(function(valid){
         return ascii==valid
       })
@@ -85,6 +93,7 @@ class Calculator{
         this.operationBlock.innerHTML="";
         this.prevBlock.innerHTML="";
         this.firstNumber=0;
+        this.reset=true;
       }
       return;
     }else if(sym=="."){
