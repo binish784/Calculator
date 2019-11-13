@@ -61,9 +61,19 @@ body{
 #currentNumber{
 	float:right;
 	text-align: right;
-	width: 300px;
+	width: 250px;
+	overflow: auto;
 	font-size: 40px;
 	color: white;
+}
+
+::-webkit-scrollbar{
+	background-color: grey;
+	block-size: 4px;
+}
+
+::-webkit-scrollbar-thumb{
+	background-color: cyan;
 }
 
 #operation{

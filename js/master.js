@@ -86,7 +86,9 @@ class Calculator{
       return;
     }else if(sym=="="){
       if(this.currentOperation!=""){
-        this.carryOperation();
+        if(this.result){
+          this.carryOperation();
+        }
         this.currentBlock.innerHTML=this.firstNumber;
         this.currentOperation="";
         this.result=this.firstNumber;
